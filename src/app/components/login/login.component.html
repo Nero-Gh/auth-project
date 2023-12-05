@@ -1,0 +1,106 @@
+<div
+  class="outer flex align-middle justify-center items-center shadow-md shadow-white"
+>
+  <div class="mt-2 w-2/6 rounded-md bg-white p-5">
+    <div class="text-2xl font-semibold text-center">
+      <h1>Login</h1>
+    </div>
+    <form
+      [formGroup]="loginForm"
+      (ngSubmit)="onLogin()"
+      class="mt-10 flex flex-col gap-3"
+    >
+      <div
+        class="relative flex items-center input-field border-2 border-gray-200 focus:border-blue-500 focus:outline-none rounded-md p-2 w-full"
+        [class.error]="
+          loginForm.controls['email'].dirty &&
+          loginForm.hasError('required', 'email')
+        "
+      >
+        <i class="fa fa-user absolute ml-2 text-blue-500"></i>
+        <input
+          formControlName="email"
+          type="email"
+          id="email"
+          placeholder="Email"
+          class="px-6 border-none outline-none shadow-none w-full"
+        />
+      </div>
+      <small
+        *ngIf="
+          loginForm.controls['email'].dirty &&
+          loginForm.hasError('required', 'email')
+        "
+        class="text-red-600"
+        >*Email is Required</small
+      >
+      <div
+        class="relative flex items-center input-field border-2 border-gray-200 rounded-md p-2 w-full"
+        [class.error]="
+          loginForm.controls['password'].dirty &&
+          loginForm.hasError('required', 'password')
+        "
+      >
+        <i class="fa fa-lock absolute ml-2 text-blue-500"></i>
+        <input
+          formControlName="password"
+          [type]="type"
+          id="password"
+          placeholder="Password"
+          class="px-6 border-none outline-none shadow-none w-full"
+        />
+        <i
+          (click)="hideShowPassword()"
+          class="{{
+            showEye
+          }} absolute text-blue-500 cursor-pointer right-0 mr-2"
+        ></i>
+      </div>
+      <small
+        *ngIf="
+          loginForm.controls['password'].dirty &&
+          loginForm.hasError('required', 'password')
+        "
+        class="text-red-600"
+        >*Password is Required</small
+      >
+      <div class="forget-password mt-2">
+        <a href="#" class="text-blue-500">Forget Password?</a>
+      </div>
+
+      <button
+        type="submit"
+        class="bg-blue-500 w-full mt-3 rounded-3xl text-white py-2 cursor-pointer"
+      >
+        Login
+      </button>
+    </form>
+    <div class="account mt-3">
+      <p class="text-center">
+        Don't have an account?
+        <a routerLink="/register" class="text-blue-500">Sign Up</a>
+      </p>
+      <p class="connect-with text-center mt-10"></p>
+    </div>
+    <div class="social mt-3">
+      <div class="flex justify-center gap-3">
+        <a href="#">
+          <div class="bg-blue-500 w-10 h-10 text-center rounded-full p-2">
+            <i class="fa fa-facebook text-white"></i>
+          </div>
+        </a>
+        <a href="#">
+          <div class="bg-red-500 w-10 h-10 text-center rounded-full p-2">
+            <i class="fa fa-google text-white"></i>
+          </div>
+        </a>
+
+        <a href="#">
+          <div class="bg-black w-10 h-10 text-center rounded-full p-2">
+            <i class="fa fa-github text-white"></i>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

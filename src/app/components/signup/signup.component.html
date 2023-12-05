@@ -1,0 +1,138 @@
+<div
+  class="outer flex align-middle justify-center items-center shadow-md shadow-white"
+>
+  <div class="mt-2 w-2/6 rounded-md bg-white p-5">
+    <div class="text-2xl font-semibold text-center">
+      <h1>SignUp</h1>
+    </div>
+    <form
+      [formGroup]="signupForm"
+      class="mt-10 flex flex-col gap-3"
+      (ngSubmit)="onSignUp()"
+    >
+      <div
+        class="relative flex items-center input-field border-2 border-gray-200 focus:border-blue-500 focus:outline-none rounded-md p-2 w-full"
+      >
+        <i class="fa fa-user absolute ml-2 text-blue-500"></i>
+        <input
+          formControlName="firstname"
+          type="text"
+          id="firstname"
+          placeholder="Firstname"
+          class="px-6 border-none outline-none shadow-none w-full"
+        />
+      </div>
+      <small
+        *ngIf="
+          signupForm.controls['firstname'].dirty &&
+          signupForm.hasError('required', 'firstname')
+        "
+        class="text-red-600"
+        >*Firstname is Required</small
+      >
+      <div
+        class="relative flex items-center input-field border-2 border-gray-200 focus:border-blue-500 focus:outline-none rounded-md p-2 w-full"
+      >
+        <i class="fa fa-user absolute ml-2 text-blue-500"></i>
+        <input
+          formControlName="lastname"
+          type="text"
+          id="lastname"
+          placeholder="Lastname"
+          class="px-6 border-none outline-none shadow-none w-full"
+        />
+      </div>
+      <small
+        *ngIf="
+          signupForm.controls['lastname'].dirty &&
+          signupForm.hasError('required', 'lastname')
+        "
+        class="text-red-600"
+        >*Lastname is Required</small
+      >
+      <div
+        class="relative flex items-center input-field border-2 border-gray-200 focus:border-blue-500 focus:outline-none rounded-md p-2 w-full"
+      >
+        <i class="fa fa-envelope absolute ml-2 text-blue-500"></i>
+        <input
+          formControlName="email"
+          type="email"
+          id="email"
+          placeholder="Email"
+          class="px-6 border-none outline-none shadow-none w-full"
+        />
+      </div>
+      <small
+        *ngIf="
+          signupForm.controls['email'].dirty &&
+          signupForm.hasError('required', 'email')
+        "
+        class="text-red-600"
+        >*Email is Required</small
+      >
+      <div
+        class="relative flex items-center input-field border-2 border-gray-200 focus:border-blue-500 focus:outline-none rounded-md p-2 w-full"
+      >
+        <i class="fa fa-user absolute ml-2 text-blue-500"></i>
+        <input
+          formControlName="username"
+          type="text"
+          id="username"
+          placeholder="Username"
+          class="px-6 border-none outline-none shadow-none w-full"
+        />
+      </div>
+      <small
+        *ngIf="
+          signupForm.controls['username'].dirty &&
+          signupForm.hasError('required', 'username')
+        "
+        class="text-red-600"
+        >*Username is Required</small
+      >
+      <div
+        class="relative flex items-center input-field border-2 border-gray-200 rounded-md p-2 w-full"
+      >
+        <i class="fa fa-lock absolute ml-2 text-blue-500"></i>
+        <input
+          formControlName="password"
+          [type]="type"
+          id="password"
+          placeholder="Password"
+          class="px-6 border-none outline-none shadow-none w-full"
+        />
+        <i
+          (click)="hideShowPassword()"
+          class="{{
+            showEye
+          }} absolute text-blue-500 cursor-pointer right-0 mr-2"
+        ></i>
+      </div>
+      <small
+        *ngIf="
+          signupForm.controls['password'].dirty &&
+          signupForm.hasError('required', 'password')
+        "
+        class="text-red-600"
+        >*Password is Required</small
+      >
+      <div class="forget-password mt-2">
+        <a href="#" class="text-blue-500">Forget Password?</a>
+      </div>
+      <div class="my-3">
+        <button
+          type="submit"
+          class="bg-blue-500 w-full rounded-3xl text-white py-2"
+        >
+          Register
+        </button>
+      </div>
+    </form>
+    <div class="account mt-3">
+      <p class="text-center">
+        Already have an account?
+        <a routerLink="/login" class="text-blue-500 cursor-pointer">Sign In</a>
+      </p>
+    </div>
+  </div>
+</div>

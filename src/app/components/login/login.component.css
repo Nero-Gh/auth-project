@@ -1,0 +1,32 @@
+.outer {
+  height: 100vh;
+  background: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%) no-repeat;
+}
+
+.outer .connect-with {
+  border: 1px solid #d4d4d4;
+  position: relative;
+}
+
+.outer .connect-with::after {
+  content: "or connect with";
+  position: absolute;
+  top: -13px;
+  left: 36%;
+  background: #fff;
+  padding: 0 10px;
+}
+
+.input-field.error {
+  border: 1px solid red;
+  color: red;
+}
+
+.input-field.error i {
+  color: red;
+}
+
+.input-field.error input[type="text"],
+.input-field.error input[type="password"] {
+  color: red;
+}
